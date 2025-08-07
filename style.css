@@ -1,0 +1,361 @@
+/* =========================
+   Variables & Thème
+   ========================= */
+:root {
+  --bg: #f5f5f5;
+  --text: #1a1a1a;
+  --accent: #007acc;
+  --card-bg: #2a0909;
+  --card-radius: 18px;
+  --card-shadow: 0 4px 24px rgba(0,0,0,0.25);
+}
+
+[data-theme="dark"] {
+  --bg: #1a1a1a;
+  --text: #f5f5f5;
+  --accent: #e3f306;
+  --card-bg: #2a0909;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* =========================
+   Header & Navigation
+   ========================= */
+header {
+  background: var(--card-bg);
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: var(--accent);
+}
+
+/* Boutons nav uniformes */
+.theme-toggle,
+.lang-toggle {
+  cursor: pointer;
+  font-size: 1.2rem;
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.lang-toggle img.lang-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  pointer-events: none;
+}
+
+.theme-toggle:hover,
+.lang-toggle:hover {
+  background: #ffd600;
+  color: #222;
+  border-color: #ffd600;
+}
+
+/* =========================
+   Layout principal
+   ========================= */
+.main-header {
+  display: flex;
+  gap: 2rem;
+  max-width: 1400px; /* Augmenté pour utiliser plus d'espace */
+  margin: 2rem auto; /* Réduit la marge verticale */
+  padding: 0 1rem;
+}
+
+.id-card {
+  flex: 0 0 300px; /* Légèrement réduit pour donner plus d'espace aux autres sections */
+  align-self: flex-start;
+  /* Gardez les autres styles existants pour .id-card */
+  max-width: 350px;
+  margin: 0;
+  justify-self: start;
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  padding-bottom: 1.5rem;
+  box-sizing: border-box;
+}
+
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  gap: 2rem;
+}
+
+.box.about {
+  flex: 1;
+  margin: 0;
+}
+
+#projects {
+  flex: 0 0 300px; /* Augmenté pour plus de contenu */
+}
+
+/* =========================
+   Carte d'identité
+   ========================= */
+.id-banner {
+  width: 100%;
+  height: 120px;
+  background-image: url('https://i.pinimg.com/1200x/6c/64/20/6c6420f8d7216e41dc516dcff217dbac.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.id-profile-pic {
+  position: absolute;
+  left: 50%;
+  top: 85px;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--card-bg);
+  background: #fff;
+  z-index: 2;
+}
+.id-profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.id-content {
+  margin-top: 60px;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.id-content h2 {
+  margin: 1.2rem 0 0.7rem 0;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Détails (team, pays) */
+.id-details {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+.id-details img {
+  margin-right: 0.3rem;
+  vertical-align: middle;
+}
+
+/* Description */
+.id-desc {
+  margin: 0.5rem 0 1rem 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+/* Réseaux sociaux */
+.id-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+}
+.id-socials a img {
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  object-fit: contain;
+  filter: invert(1);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.id-socials a:hover img {
+  opacity: 1;
+}
+
+/* =========================
+   Sections principales
+   ========================= */
+.box {
+  margin: 0;
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  color: #fff;
+  padding: 1.5rem; /* Légèrement réduit pour plus de contenu */
+  text-align: left;
+}
+.box a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.box a:hover {
+  color: var(--accent);
+}
+[data-theme="dark"] .box {
+  background: var(--card-bg);
+  color: #fff;
+}
+
+/* Styles spécifiques pour la section projets */
+#projects.box {
+  padding: 1rem;
+}
+
+/* =========================
+   Projets
+   ========================= */
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project {
+  background: #fff;
+  color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+[data-theme="dark"] .project {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.project:hover {
+  transform: scale(1.02);
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 0 0 var(--card-radius) var(--card-radius);
+  margin-top: 2rem;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 1300px) {
+  .main-header {
+    flex-wrap: wrap;
+  }
+
+  .id-card {
+    flex: 0 0 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .content-wrapper {
+    flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  #projects {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header,
+  .content-wrapper {
+    padding: 0;
+  }
+
+  .id-card,
+  .box.about,
+  #projects {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .id-card { max-width: 98vw; }
+  .box { max-width: 98vw; padding: 1rem; }
+  .projects { grid-template-columns: 1fr; }
+}
+
+/* Ajustez la section contact pour qu'elle s'aligne avec le contenu principal */
+#contact.box {
+  max-width: 1400px; /* Correspond à .main-header */
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
+
+/* =========================
+   Utilitaires
+   ========================= */
+.alinea {
+  text-indent: 2em;
+}
